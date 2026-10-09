@@ -17,10 +17,6 @@ Paste the following 👇:
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-# Combined RKE2 reset and reinstall for Ubuntu.
-# Run as a normal user with sudo privileges.
-# Uses the current stable RKE2 release on reinstall.
-
 if [[ $EUID -eq 0 ]]; then
   echo "Run as your normal user, not with sudo."
   exit 1
@@ -128,6 +124,8 @@ echo "Check that the node STATUS is Ready."
 echo "System pods may need extra time to start."
 echo "Old apps, Vault data, and custom settings"
 echo "must be restored or redeployed separately."
+
+-----------------------------------------------------
 
 2. Run it 👇:
 

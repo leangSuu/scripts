@@ -62,7 +62,6 @@ if [[ ${#NAMESPACES[@]} -eq 0 ]]; then
   exit 1
 fi
 
-# Never permit deletion of core/system namespaces.
 PROTECTED="default kube-system kube-public kube-node-lease"
 
 for NS in "${NAMESPACES[@]}"; do
@@ -101,7 +100,6 @@ for NS in "${NAMESPACES[@]}"; do
     continue
   fi
 
-  # Delete common workload and application resources.
   k delete deployments,statefulsets,daemonsets,jobs,cronjobs \
     --all -n "$NS" --ignore-not-found
 
